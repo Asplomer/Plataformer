@@ -1,0 +1,38 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+
+# Executables
+*.exe
+*.out
+*.app
+Plataformer/bin/**
+Plataformer/obj/**
+Plataformer/x64/**
+Plataformer/.vs/**
+Plataformer/Plataformer.VC.db
+Plataformer/Plataformer/x64/**
+Proyect5/Proyect5/Debug/**
