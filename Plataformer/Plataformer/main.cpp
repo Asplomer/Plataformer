@@ -7,13 +7,11 @@ using namespace std;
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-	tmx::TileMap map("Plataformer\res");
+	tmx::TileMap map("res/Plataformer.tmx");
 	map.ShowObjects(); // Display all the layer objects.
 
-	map.GetLayer("World").visible = false; // Hide a Layer named World
+	//map.GetLayer("World").visible = false; // Hide a Layer named World
 
-	//sf::CircleShape shape(100.f);
-	//shape.setFillColor(sf::Color::Green);
 
 	while (window.isOpen())
 	{
