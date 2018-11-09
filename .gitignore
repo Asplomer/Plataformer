@@ -14,7 +14,6 @@
 # Compiled Dynamic libraries
 *.so
 *.dylib
-*.dll
 
 # Fortran module files
 *.mod
@@ -29,6 +28,7 @@
 *.exe
 *.out
 *.app
+
 Plataformer/bin/**
 Plataformer/obj/**
 Plataformer/x64/**
