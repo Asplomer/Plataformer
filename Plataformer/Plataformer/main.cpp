@@ -7,7 +7,7 @@ using namespace std;
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-	tmx::TileMap map("res/Plataformer.tmx");
+	tmx::TileMap map("res/Ejemtiles.tmx");
 	map.ShowObjects(); // Display all the layer objects.
 
 	//map.GetLayer("World").visible = false; // Hide a Layer named World
