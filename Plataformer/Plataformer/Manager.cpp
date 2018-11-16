@@ -19,6 +19,8 @@ namespace Plataformer {
 			
 		player->UpdatePlayer();
 		platform->UpdatePlatform();
+
+
 	}
 	void DrawManager() {
 		window->clear();

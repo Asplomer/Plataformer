@@ -21,9 +21,10 @@ namespace Plataformer {
 		void UpdatePlayer();
 		void DrawPlayer();
 //		bool OnAirPlayer();
-//		bool ColidePlayer();
+		bool OnGroundPlayer();
 		void InputPlayer();
 		void UnloadPlayer();
+	
 	};
 }
 #endif

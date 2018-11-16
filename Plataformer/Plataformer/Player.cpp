@@ -24,16 +24,17 @@ namespace Plataformer {
 		window->draw(_playerSprite);
 	}
 	void Player::InputPlayer() {
-		if(Keyboard::isKeyPressed(Keyboard::Right))
-		_playerPos.x+= 0.5f;
+		if (Keyboard::isKeyPressed(Keyboard::Right))
+			_playerPos.x += 0.5f;
 		if (Keyboard::isKeyPressed(Keyboard::Left))
 			_playerPos.x -= 0.5f;
-		
-		if (Keyboard::isKeyPressed(Keyboard::Space) && _jump == false) {
-			_jump = true;
-			_momentum = 2.0f;
+		if (_jump == false) {
+			if (Keyboard::isKeyPressed(Keyboard::Space) && _jump == false) {
+				_jump = true;
+				_momentum = 2.0f;
+			}
 		}
-		if (_jump == true) {
+		else {
 			
 			_playerPos.y -= _momentum / 4;
 			_momentum -=0.01f;
@@ -46,6 +47,8 @@ namespace Plataformer {
 	void Player::UnloadPlayer() {
 
 	}
-
+	bool Player::OnGroundPlayer() {
+		return false;
+	}
 
 }
