@@ -3,10 +3,13 @@
 #include <iostream>
 #include <SFML\Graphics.hpp>
 #include <STP\TMXLoader.hpp>
-using namespace sf;
+#include "Platform.h"
+#include "Player.h"
+
 using namespace std;
 #define PLAYERSPEED 10.0f
 namespace Plataformer{
+	using namespace sf;
 	extern int screenWidth;
 	extern int screenHeight;
 	extern int verMajor;
@@ -19,9 +22,10 @@ namespace Plataformer{
 		Credit,
 		End
 	};
-		extern RenderWindow* window;
-		void InitManager();
-		void UpdatePlayer();
+	extern RenderWindow* window;
+	void InitManager();
+	void UpdateManager();
+	void DrawManager();
 };
 #endif
 

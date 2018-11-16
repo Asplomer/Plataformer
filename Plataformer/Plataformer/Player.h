@@ -4,7 +4,9 @@
 #include <SFML\Graphics.hpp>
 #include <STP\TMXLoader.hpp>
 #include "Manager.h"
+
 namespace Plataformer {
+	using namespace sf;
 	class Player{
 	private:
 		Sprite _playerSprite;

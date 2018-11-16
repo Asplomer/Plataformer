@@ -37,6 +37,7 @@ namespace Plataformer {
 			
 			_playerPos.y -= _momentum / 4;
 			_momentum -=0.01f;
+			//COLISIONES
 			if (_momentum <= -2.0f)
 				_jump = false;
 		}

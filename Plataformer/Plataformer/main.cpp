@@ -2,7 +2,6 @@
 //#include <STP\TMXLoader.hpp>
 //#include <iostream>
 #include "Manager.h"
-#include "Player.h"
 using namespace std;
 using namespace Plataformer;
 int main()
@@ -13,16 +12,18 @@ int main()
 	
 	map.ShowObjects(); // Display all the layer objects.
 	InitManager();
-	Player* player= new Player();
-	player->InitPlayer(Vector2f((float)50, (float)screenHeight/5));
+	
 	//map.GetLayer("World").visible = false; // Hide a Layer named World
 
 
 	while (	window->isOpen())
 	{
 		Event event;
+		UpdateManager();
+		DrawManager();
 		while (window->pollEvent(event))
 		{
+
 			if (event.type == Event::Closed)
 				window->close();
 		}
@@ -33,8 +34,8 @@ int main()
 		window->draw(map);
 		
 		//player->DrawPlayer();
-		player->UpdatePlayer();
-		window->display();
+		
+
 	}
 
 	return 0;
