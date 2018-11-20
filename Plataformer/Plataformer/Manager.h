@@ -24,8 +24,9 @@ namespace Plataformer{
 	};
 	extern RenderWindow* window;
 	void InitManager();
-	void UpdateManager();
+	void UpdateManager(float time);
 	void DrawManager();
+	bool ColiderManager(Vector2f vec1, Vector2f vec2);
 };
 #endif
 

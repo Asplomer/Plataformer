@@ -17,7 +17,7 @@ namespace Plataformer {
 
 	public:
 		void InitPlatform(Vector2f vec);
-		void UpdatePlatform();
+		void UpdatePlatform(float time);
 		void DrawPlatform();
 		void UnloadPlatform();
 		bool ColisionPlatform(Vector2f min, Vector2f max);

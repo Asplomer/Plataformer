@@ -13,10 +13,11 @@ namespace Plataformer {
 		}
 		
 	}
-	void Platform::UpdatePlatform() {
+	void Platform::UpdatePlatform(float time) {
 		//8 de ancho* alto
-		_platformPos.x-=0.1f;
+		_platformPos.x-=0.01f*time;
 		_platfSprite.setPosition(_platformPos);
+		//cout << _platformPos.x << endl;
 	}
 	void Platform::DrawPlatform() {
 
@@ -28,8 +29,19 @@ namespace Plataformer {
 	
 	}
 	bool Platform::ColisionPlatform(Vector2f min, Vector2f max) {
-		if (min.y == _platformPos.y - 1)
+		float auxx = _platformPos.x + _platformSpace.x;
+		float auxy = _platformPos.y + _platformSpace.y;
+		//if (min.x >= _platformPos.x-1   && min.x <= auxx)
+		/*
+		cout << _platformPos.y<< " <= " << min.y<<" ___ ";
+		cout << _platformPos.x << " <= " << min.x << " ___ ";
+			cout << auxy<< " >= "<< max.y << " ___ ";
+			cout << auxx << " >= " << max.x << endl;
+	*/
+		//if (min.y >= _platformPos.y && min.x >=_platformPos.x && max.y <= auxy && max.x <= auxx ) {
+			if (_platformPos.y >= min.y && min.x >= _platformPos.x && auxy <= max.y  && max.x <= auxx) {
 			return true;
+		}
 		return false;
 	}
 }

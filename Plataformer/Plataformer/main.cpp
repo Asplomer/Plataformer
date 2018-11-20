@@ -4,9 +4,10 @@
 #include "Manager.h"
 using namespace std;
 using namespace Plataformer;
+
 int main()
 {
-	
+	Clock clock;
 
 	tmx::TileMap map("res/Ejemtiles.tmx");
 	
@@ -18,8 +19,9 @@ int main()
 
 	while (	window->isOpen())
 	{
+		sf::Time elapsed = clock.restart();
 		Event event;
-		UpdateManager();
+		UpdateManager(elapsed.asSeconds());
 		DrawManager();
 		while (window->pollEvent(event))
 		{

@@ -18,11 +18,11 @@ namespace Plataformer {
 		bool _jump;
 	public:
 		void InitPlayer(Vector2f vec);
-		void UpdatePlayer();
+		void UpdatePlayer(float time);
 		void DrawPlayer();
 //		bool OnAirPlayer();
 		bool OnGroundPlayer();
-		void InputPlayer();
+		void InputPlayer(float time);
 		void UnloadPlayer();
 	
 	};
