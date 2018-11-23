@@ -1,5 +1,12 @@
 # Changelog
 
+
+## [0.4] - 2018 - 11 - 20
+### Modified
+- Collisions
+### Added
+- More Platforms
+
 ## [0.25] - 2018 - 11 - 20
 ### Modified
 - Collisions

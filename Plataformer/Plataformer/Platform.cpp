@@ -2,22 +2,54 @@
 
 namespace Plataformer {
 	static Texture _platf;
-	void Platform::InitPlatform(Vector2f vec) {
-		_speed = 0;
-		_platformPos = vec;
-		_platformSpace = { 128.0f, 32.0f };
-		_platformPos.y += _platformSpace.y;
+	void Platform::InitPlatform(BoundingBox box, int t1, int t2) {
+		_speedx = 0.0f;
+		_speedy = 0.0f;
+		//_platformPos = vec;
+		_boxPlatform = box;
+		_type1 = t1;
+		_type2 = t2;
+		_mult = 200.0f;
+		if ((_type1 == 1 || _type1 == 2) && (_type2 == 1 || _type2 == 2))
+			_mult = 100.0f;
 		if (!_platf.loadFromFile("res/Plataforma/PlatformSimple.png"))
 		{
 			// error...
 		}
 		
 	}
-	void Platform::UpdatePlatform(float time) {
+	void Platform::UpdatePlatform() {
 		//8 de ancho* alto
-		_platformPos.x-=0.01f*time;
-		_platfSprite.setPosition(_platformPos);
-		//cout << _platformPos.x << endl;
+
+		if (_type1 == 0) {
+			_speedx = 0.0f;
+		}
+		if (_type1 == 1) {
+			_speedx = sin((float)hourglass / 50)* PLATFORMSPEED;
+		}
+		if (_type1 == 2) {
+			_speedx = sin(-1 * (float)hourglass / 50)* PLATFORMSPEED;
+		}
+		if (_type2 == 0) {
+			_speedy = 0.0f;
+		}
+		if (_type2 == 1) {
+			_speedy = sin((float)hourglass / 50)* PLATFORMSPEED;
+		}
+		if (_type2 == 2) {
+			_speedy =  sin(-1 * (float)hourglass / 50)* PLATFORMSPEED;
+		}
+
+		_boxPlatform.x += _speedx * _mult * time;
+		cout << _boxPlatform.x<<endl;
+		_boxPlatform.y += _speedy * _mult * time;
+		_platfSprite.setPosition(Vector2f{ _boxPlatform.x, _boxPlatform.y });
+	}
+	float Platform::ReturnMovementPlatformx(){
+		return _speedx * _mult * time;
+	}
+	float Platform::ReturnMovementPlatformy() {
+		return _speedy * _mult * time;
 	}
 	void Platform::DrawPlatform() {
 
@@ -28,20 +60,10 @@ namespace Plataformer {
 	void Platform::UnloadPlatform(){
 	
 	}
-	bool Platform::ColisionPlatform(Vector2f min, Vector2f max) {
-		float auxx = _platformPos.x + _platformSpace.x;
-		float auxy = _platformPos.y + _platformSpace.y;
-		//if (min.x >= _platformPos.x-1   && min.x <= auxx)
-		/*
-		cout << _platformPos.y<< " <= " << min.y<<" ___ ";
-		cout << _platformPos.x << " <= " << min.x << " ___ ";
-			cout << auxy<< " >= "<< max.y << " ___ ";
-			cout << auxx << " >= " << max.x << endl;
-	*/
-		//if (min.y >= _platformPos.y && min.x >=_platformPos.x && max.y <= auxy && max.x <= auxx ) {
-			if (_platformPos.y >= min.y && min.x >= _platformPos.x && auxy <= max.y  && max.x <= auxx) {
-			return true;
-		}
-		return false;
+
+	BoundingBox Platform::BoundingPlatform() {
+		//BoundingBox aux = { _boxPlatform.x, _boxPlatform.y, _boxPlatform.x, _boxPlatform.y};
+		return _boxPlatform;
 	}
+
 }

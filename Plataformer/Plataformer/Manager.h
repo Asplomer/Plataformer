@@ -5,15 +5,22 @@
 #include <STP\TMXLoader.hpp>
 #include "Platform.h"
 #include "Player.h"
-
+#include "Game.h"
+#include "AuxBB.h"
+#include <cmath>
 using namespace std;
-#define PLAYERSPEED 10.0f
-namespace Plataformer{
-	using namespace sf;
+using namespace sf;
+#define PLATFORMARRAYSIZE 4
+
+namespace Plataformer {
+
 	extern int screenWidth;
 	extern int screenHeight;
 	extern int verMajor;
 	extern int verMinor;
+	extern int gameState;
+	extern float hourglass;
+	extern float time;
 	enum PlayState
 	{
 		Start,
@@ -22,11 +29,14 @@ namespace Plataformer{
 		Credit,
 		End
 	};
+	
+
+	void PlayTheGame();
 	extern RenderWindow* window;
 	void InitManager();
-	void UpdateManager(float time);
+	void UpdateManager();
 	void DrawManager();
-	bool ColiderManager(Vector2f vec1, Vector2f vec2);
+	
 };
 #endif
 

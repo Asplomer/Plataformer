@@ -7,38 +7,13 @@ using namespace Plataformer;
 
 int main()
 {
-	Clock clock;
 
-	tmx::TileMap map("res/Ejemtiles.tmx");
-	
-	map.ShowObjects(); // Display all the layer objects.
-	InitManager();
+	PlayTheGame();
 	
 	//map.GetLayer("World").visible = false; // Hide a Layer named World
 
 
-	while (	window->isOpen())
-	{
-		sf::Time elapsed = clock.restart();
-		Event event;
-		UpdateManager(elapsed.asSeconds());
-		DrawManager();
-		while (window->pollEvent(event))
-		{
-
-			if (event.type == Event::Closed)
-				window->close();
-		}
-
-		window->clear();
-		
-		//window.draw(shape);
-		window->draw(map);
-		
-		//player->DrawPlayer();
-		
-
-	}
+	
 
 	return 0;
 }

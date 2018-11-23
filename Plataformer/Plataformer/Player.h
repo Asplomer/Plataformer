@@ -4,27 +4,26 @@
 #include <SFML\Graphics.hpp>
 #include <STP\TMXLoader.hpp>
 #include "Manager.h"
+#include "AuxBB.h"
 
+#define PLAYERSPEED 1.2f
 namespace Plataformer {
 	using namespace sf;
 	class Player{
 	private:
 		Sprite _playerSprite;
-		Vector2f _playerPos ;
-		Vector2f _playerSpace;
-		
-		//float _speed;
+		BoundingBox _boxPlayer;
 		float _momentum;
 		bool _jump;
 	public:
-		void InitPlayer(Vector2f vec);
-		void UpdatePlayer(float time);
+		void InitPlayer(BoundingBox box);
+		void UpdatePlayer(float aux1, float aux2);
 		void DrawPlayer();
-//		bool OnAirPlayer();
 		bool OnGroundPlayer();
-		void InputPlayer(float time);
+		void InputPlayer();
 		void UnloadPlayer();
-	
+		bool PlayerJump(bool colision);
+		BoundingBox BoundingPlayer();
 	};
 }
 #endif

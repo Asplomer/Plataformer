@@ -138,12 +138,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AuxBB.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Platform.cpp" />
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AuxBB.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="Manager.h" />
     <ClInclude Include="Platform.h" />
     <ClInclude Include="Player.h" />

@@ -4,23 +4,27 @@
 #include <SFML\Graphics.hpp>
 #include <STP\TMXLoader.hpp>
 #include "Manager.h"
-namespace Plataformer {
+#include "AuxBB.h"
+#define PLATFORMSPEED 0.3f;
+namespace Plataformer{
 	using namespace sf;
 	class Platform {
 	private:
-		float _speed;
-		Vector2f _platformPos;
-		Vector2f _platformSpace;
+		float _speedx;
+		float _speedy;
 		Sprite _platfSprite;
-
-
-
+		BoundingBox _boxPlatform;
+		int _type1;
+		int _type2;
+		float _mult;
 	public:
-		void InitPlatform(Vector2f vec);
-		void UpdatePlatform(float time);
+		void InitPlatform(BoundingBox box, int t1, int t2);
+		void UpdatePlatform();
+		float ReturnMovementPlatformx();
+		float ReturnMovementPlatformy();
 		void DrawPlatform();
 		void UnloadPlatform();
-		bool ColisionPlatform(Vector2f min, Vector2f max);
+		BoundingBox BoundingPlatform();
 	};
 }
 #endif
