@@ -3,6 +3,7 @@ namespace Plataformer {
 	Player* player = new Player();
 	//Platform* platform = new Platform;
 	Platform* platformArray[PLATFORMARRAYSIZE];
+	Enemy* eye = new Enemy();
 	void InitGame() {
 		BoundingBox ch = { (float)50, (float)screenHeight / 6 - 16 , 32.0f, 32.0f };	
 		BoundingBox p1 = { (float)50, (float)screenHeight / 3 +20,  128.0f, 32.0f };
@@ -19,6 +20,7 @@ namespace Plataformer {
 		platformArray[1]->InitPlatform(p2, 0, 1);
 		platformArray[2]->InitPlatform(p3, 0, 2);
 		platformArray[3]->InitPlatform(p4, 1, 1);
+		eye->InitEnemy(ch);
 	}
 
 
@@ -50,7 +52,7 @@ void UpdateGame() {
 	
 
 	
-	
+	eye->UpdateEnemy(player->BoundingPlayer());
 
 	player->UpdatePlayer(aux1, aux2);
 	player->PlayerJump(colides);
@@ -59,6 +61,7 @@ void UpdateGame() {
 	}
 void DrawGame() {
 	player->DrawPlayer();
+	eye->DrawEnemy();
 	for (int i = 0; i < PLATFORMARRAYSIZE; i++)
 	{
 		platformArray[i]->DrawPlatform();

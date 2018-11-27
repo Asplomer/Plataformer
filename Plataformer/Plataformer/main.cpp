@@ -2,11 +2,14 @@
 //#include <STP\TMXLoader.hpp>
 //#include <iostream>
 #include "Manager.h"
+#include <ctime>
 using namespace std;
 using namespace Plataformer;
 
 int main()
 {
+	srand(std::time(0));
+	
 
 	PlayTheGame();
 	

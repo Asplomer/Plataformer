@@ -20,10 +20,9 @@ namespace Plataformer{
 	public:
 		void InitPlatform(BoundingBox box, int t1, int t2);
 		void UpdatePlatform();
+		void DrawPlatform();
 		float ReturnMovementPlatformx();
 		float ReturnMovementPlatformy();
-		void DrawPlatform();
-		void UnloadPlatform();
 		BoundingBox BoundingPlatform();
 	};
 }

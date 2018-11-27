@@ -41,24 +41,22 @@ namespace Plataformer {
 		}
 
 		_boxPlatform.x += _speedx * _mult * time;
-		cout << _boxPlatform.x<<endl;
+		//cout << _boxPlatform.x<<endl;
 		_boxPlatform.y += _speedy * _mult * time;
 		_platfSprite.setPosition(Vector2f{ _boxPlatform.x, _boxPlatform.y });
 	}
-	float Platform::ReturnMovementPlatformx(){
-		return _speedx * _mult * time;
-	}
-	float Platform::ReturnMovementPlatformy() {
-		return _speedy * _mult * time;
-	}
+
 	void Platform::DrawPlatform() {
 
 		_platfSprite.setTexture(_platf);
 
 		window->draw(_platfSprite);
 	}
-	void Platform::UnloadPlatform(){
-	
+	float Platform::ReturnMovementPlatformx() {
+		return _speedx * _mult * time;
+	}
+	float Platform::ReturnMovementPlatformy() {
+		return _speedy * _mult * time;
 	}
 
 	BoundingBox Platform::BoundingPlatform() {

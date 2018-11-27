@@ -63,6 +63,14 @@ namespace Plataformer {
 			return true;
 		}
 	}
+	void Player::Atack(){
+	
+	}
+	float Player::AngleToPlayer(BoundingBox from) {
+		double tgX = from.x - _boxPlayer.x;
+		double tgy = from.y - _boxPlayer.y;
+		return atan2(tgX, tgy);
+	}
 	BoundingBox Player::BoundingPlayer(){
 		return _boxPlayer;
 	}

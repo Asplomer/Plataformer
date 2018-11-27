@@ -15,6 +15,7 @@ namespace Plataformer {
 		BoundingBox _boxPlayer;
 		float _momentum;
 		bool _jump;
+		bool _direction;
 	public:
 		void InitPlayer(BoundingBox box);
 		void UpdatePlayer(float aux1, float aux2);
@@ -23,6 +24,8 @@ namespace Plataformer {
 		void InputPlayer();
 		void UnloadPlayer();
 		bool PlayerJump(bool colision);
+		void Atack();
+		float AngleToPlayer(BoundingBox from);
 		BoundingBox BoundingPlayer();
 	};
 }

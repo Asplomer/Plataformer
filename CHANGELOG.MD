@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.5] - 2018 - 11 - 27
+### Added
+- Enemy
 
 ## [0.4] - 2018 - 11 - 20
 ### Modified

@@ -6,6 +6,7 @@
 #include "Platform.h"
 #include "Player.h"
 #include "Game.h"
+#include "Enemy.h"
 #include "AuxBB.h"
 #include <cmath>
 using namespace std;
