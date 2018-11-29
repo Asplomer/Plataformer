@@ -5,7 +5,7 @@ namespace Plataformer {
 	int screenWidth = 0;
 	int screenHeight = 0;
 	int verMajor = 0;
-	int verMinor = 5;
+	int verMinor = 6;
 	int gameState = Play;
 	float hourglass;
 	float time;

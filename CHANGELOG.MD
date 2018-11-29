@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.6] - 2018 - 11 - 27
+### Added
+- Atacking
+
 ## [0.5] - 2018 - 11 - 27
 ### Added
 - Enemy

@@ -5,7 +5,7 @@ namespace Plataformer {
 	Platform* platformArray[PLATFORMARRAYSIZE];
 	Enemy* eye = new Enemy();
 	void InitGame() {
-		BoundingBox ch = { (float)50, (float)screenHeight / 6 - 16 , 32.0f, 32.0f };	
+		BoundingBox ch = { (float)50, (float)screenHeight / 6 - 16 , 22.0f, 16.0f };	
 		BoundingBox p1 = { (float)50, (float)screenHeight / 3 +20,  128.0f, 32.0f };
 		BoundingBox p2 = { (float)screenWidth / 2 +10, (float)screenHeight / 2 -100,  128.0f, 32.0f };
 		BoundingBox p3 = { (float)screenWidth / 2 -150, (float)screenHeight /2  ,  128.0f, 32.0f };

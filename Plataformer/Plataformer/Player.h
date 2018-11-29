@@ -16,6 +16,12 @@ namespace Plataformer {
 		float _momentum;
 		bool _jump;
 		bool _direction;
+		bool _atacking;
+		float _atackCooldown;
+		bool _atackCD;
+		float _atackStart;
+		Sprite _atackSprite;
+		BoundingBox _boxAtack;
 	public:
 		void InitPlayer(BoundingBox box);
 		void UpdatePlayer(float aux1, float aux2);
