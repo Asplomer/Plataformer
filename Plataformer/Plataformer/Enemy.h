@@ -1,16 +1,21 @@
 #ifndef ENEMY_H
 #define ENEMY_H
+
 #include <iostream>
+
 #include <SFML\Graphics.hpp>
 #include <STP\TMXLoader.hpp>
+
 #include "Manager.h"
 #include "AuxBB.h"
-#define ENEMYSPEED 0.4f
-#define ENEMYDISTANCE 300.0f
+
+
 namespace Plataformer {
 	using namespace sf;
 	class Enemy {
 	private:
+		const float ENEMYSPEED = 0.4f;
+		const float ENEMYDISTANCE = 300.0f;
 		Sprite _enemySprite;
 		BoundingBox _boxEnemy;
 	public:

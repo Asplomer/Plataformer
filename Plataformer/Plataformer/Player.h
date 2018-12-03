@@ -1,16 +1,18 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include <iostream>
+
 #include <SFML\Graphics.hpp>
 #include <STP\TMXLoader.hpp>
+
 #include "Manager.h"
 #include "AuxBB.h"
 
-#define PLAYERSPEED 1.2f
 namespace Plataformer {
 	using namespace sf;
 	class Player{
 	private:
+		const float PLAYERSPEED = 1.2f;
 		Sprite _playerSprite;
 		BoundingBox _boxPlayer;
 		float _momentum;
@@ -26,9 +28,9 @@ namespace Plataformer {
 		void InitPlayer(BoundingBox box);
 		bool UpdatePlayer(float aux1, float aux2);		//devuelve si esta atacando
 		void DrawPlayer();
-		bool OnGroundPlayer();
 		void InputPlayer();
 		void UnloadPlayer();
+		bool OnGroundPlayer();
 		bool PlayerJump(bool colision);
 		BoundingBox BoundingAtack();
 		float AngleToPlayer(BoundingBox from);

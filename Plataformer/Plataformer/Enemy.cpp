@@ -11,7 +11,7 @@ namespace Plataformer {
 		_boxEnemy.w = size.x;
 		//_boxEnemy.x = playerPos.x + ENEMYDISTANCE;
 		//_boxEnemy.y = playerPos.y + ENEMYDISTANCE;
-		if(_enemyTexture.loadFromFile("res/EvilEye.png")){
+		if(_enemyTexture.loadFromFile("res/Imagenes/EvilEye.png")){
 			//you done goofed
 		}
 		_enemySprite.setPosition(_boxEnemy.x, _boxEnemy.y);
@@ -39,9 +39,4 @@ namespace Plataformer {
 	BoundingBox Enemy::BoundingEnemy(){
 		return _boxEnemy;
 	}
-
-
-
-
-
 }

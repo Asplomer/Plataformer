@@ -64,8 +64,7 @@ namespace Plataformer {
 	}
 	void DrawStart() {
 
-		for (int i = 0; i < TEXTNUMBERSTART; i++)
-		{
+		for (int i = 0; i < TEXTNUMBERSTART; i++){
 			text.setString(_stextStr[i]);
 			text.setPosition(Vector2f( _stextPosX[i], _stextPosY[i]));
 			text.setCharacterSize(_stextSiz[i]);

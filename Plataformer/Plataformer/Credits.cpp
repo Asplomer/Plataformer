@@ -16,13 +16,13 @@ namespace Plataformer {
 		_ctextStr[1] = (aux);
 		_ctextStr[2] = ("Made by Ariel Plomer");
 		_ctextStr[3] = ("Back");
-
+		_ctextStr[4] = ("Dash Runner(loop) by dl sounds");
 
 		_ctextSiz[0] = 40;
 		_ctextSiz[1] = 28;
 		_ctextSiz[2] = 28;
 		_ctextSiz[3] = 28;
-
+		_ctextSiz[4] = 28;
 
 		_ctextPosX[0] = 75.0f;
 		_ctextPosY[0] = 10.0f;
@@ -34,7 +34,10 @@ namespace Plataformer {
 		_ctextPosY[2] = 200.0f;
 
 		_ctextPosX[3] = 350.0f;
-		_ctextPosY[3] = 280.0f;
+		_ctextPosY[3] = 360.0f;
+
+		_ctextPosX[4] = 75.0f;
+		_ctextPosY[4] = 280.0f;
 	}
 	void UpdateCredits() {
 		Vector2i aux = Mouse::getPosition(*window);
@@ -46,7 +49,7 @@ namespace Plataformer {
 				gameState = Start;
 			}*/
 
-			if (aux.x > 350 && aux.x < 555 && aux.y  >280 && aux.y  < 320) {
+			if (aux.x > 350 && aux.x < 555 && aux.y  >360 && aux.y  < 400) {
 				gameState = Start;
 			}
 		}
@@ -54,8 +57,7 @@ namespace Plataformer {
 	void DrawCredits(){
 
 		
-		for (int i = 0; i < TEXTNUMBERCREDITS; i++)
-		{
+		for (int i = 0; i < TEXTNUMBERCREDITS; i++){
 			//aca esta el error!
 
 			text.setString(_ctextStr[i]);

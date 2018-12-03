@@ -12,8 +12,7 @@ namespace Plataformer {
 		_mult = 200.0f;
 		if ((_type1 == 1 || _type1 == 2) && (_type2 == 1 || _type2 == 2))
 			_mult = 100.0f;
-		if (!_platf.loadFromFile("res/Plataforma/PlatformSimple.png"))
-		{
+		if (!_platf.loadFromFile("res/Imagenes/Plataforma/PlatformSimple.png")){
 			// error...
 		}
 		
@@ -45,7 +44,6 @@ namespace Plataformer {
 		_boxPlatform.y += _speedy * _mult * time;
 		_platfSprite.setPosition(Vector2f{ _boxPlatform.x, _boxPlatform.y });
 	}
-
 	void Platform::DrawPlatform() {
 
 		_platfSprite.setTexture(_platf);
@@ -58,7 +56,6 @@ namespace Plataformer {
 	float Platform::ReturnMovementPlatformy() {
 		return _speedy * _mult * time;
 	}
-
 	BoundingBox Platform::BoundingPlatform() {
 		//BoundingBox aux = { _boxPlatform.x, _boxPlatform.y, _boxPlatform.x, _boxPlatform.y};
 		return _boxPlatform;

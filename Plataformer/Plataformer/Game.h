@@ -1,8 +1,11 @@
 #ifndef GAME_H
 #define GAME_H
+
+#include <iostream>
+
 #include "Manager.h"
 #include "AuxBB.h"
-#include <iostream>
+
 using namespace std;
 namespace Plataformer {
 

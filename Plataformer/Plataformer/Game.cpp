@@ -23,8 +23,6 @@ namespace Plataformer {
 		Vector2f measuresEye = { 48.0f, 48.0f };
 		eye->InitEnemy(ch, measuresEye);
 	}
-
-
 	bool DetectCol(BoundingBox rect1, BoundingBox rect2) {
 		if (rect1.x < rect2.x + rect2.w &&
 			rect1.x + rect1.w > rect2.x &&
@@ -33,21 +31,16 @@ namespace Plataformer {
 			return true;
 		return false;
 	}
-	void MovingPlatforms() {
-
-	}
-
 	void UpdateGame() {
 		float aux1 = 0.0f;
 		float aux2 = 0.0f;
 		bool aux3 = false;		//si el jugador esta atacando
 		bool colides = false;
-		if (DetectCol(player->BoundingPlayer(), eye->BoundingEnemy())) {
+		if (DetectCol(player->BoundingPlayer(), eye->BoundingEnemy()) || player->BoundingPlayer().y> screenHeight) {
 			gameState = Start;
 			InitGame();
 		}
-		for (int i = 0; i < PLATFORMARRAYSIZE; i++)
-		{
+		for (int i = 0; i < PLATFORMARRAYSIZE; i++){
 			platformArray[i]->UpdatePlatform();
 			if (DetectCol(player->BoundingPlayer(), platformArray[i]->BoundingPlatform())) {
 				colides = true;
@@ -76,8 +69,7 @@ namespace Plataformer {
 	void DrawGame() {
 		player->DrawPlayer();
 		eye->DrawEnemy();
-		for (int i = 0; i < PLATFORMARRAYSIZE; i++)
-		{
+		for (int i = 0; i < PLATFORMARRAYSIZE; i++){
 			platformArray[i]->DrawPlatform();
 		}
 

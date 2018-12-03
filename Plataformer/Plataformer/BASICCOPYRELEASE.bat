@@ -18,6 +18,8 @@ xcopy "%2res" "%1res" /E /I /Y
 copy "%2lib\SFML-2.5.1\bin\sfml-window-2.dll" "%1" /y
 copy "%2lib\SFML-2.5.1\bin\sfml-graphics-2.dll" "%1" /y
 copy "%2lib\SFML-2.5.1\bin\sfml-system-2.dll" "%1" /y
+copy "%2lib\SFML-2.5.1\bin\sfml-audio-2.dll" "%1" /y
+copy "%2lib\SFML-2.5.1\bin\openal32.dll" "%1" /y
 copy "%2lib\STP\bin\STP.dll" "%1"
 copy "%2lib\STP\bin\zlib.dll" "%1"
 echo copiados

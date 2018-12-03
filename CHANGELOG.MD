@@ -1,5 +1,13 @@
 # Changelog
 
+
+## [0.9] - 2018 - 12 - 3
+### Added
+- Music
+- Game Restart
+### Fixed
+- Player Death
+
 ## [0.8] - 2018 - 12 - 3
 ### Added
 - Credits

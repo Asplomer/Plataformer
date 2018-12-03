@@ -11,23 +11,19 @@ namespace Plataformer {
 		_atackCD = false;		// si esta en cd el ataque del jugador
 		_direction = false;		//si es false, mira para la derecha
 		
-			if (!_playerTextures[0].loadFromFile("res/Slime/Slime.png"))
-			{
+			if (!_playerTextures[0].loadFromFile("res/Imagenes/Slime/Slime.png")){
 				// error...
 			}
-			if (!_playerTextures[1].loadFromFile("res/Slime/Atack.png"))
-			{
+			if (!_playerTextures[1].loadFromFile("res/Imagenes/Slime/Atack.png")){
 				// error...
 			}
-			if (!_playerTextures[2].loadFromFile("res/Slime/Atack2.png"))
-			{
+			if (!_playerTextures[2].loadFromFile("res/Imagenes/Slime/Atack2.png")){
 				// error...
 			}
 			_playerSprite.setPosition(_boxPlayer.x, _boxPlayer.y);
 			//_boxAtack = BoundingBox{ (float)_boxPlayer.x, (float)_boxPlayer.y, (float)_boxPlayer.w, (float)_boxPlayer.h };
 			_atackSprite.setPosition(_boxPlayer.x + 32.0f, _boxPlayer.y + 16.0f);
 	}
-
 	bool Player::UpdatePlayer(float aux1, float aux2) {
 		bool ret = false;
 		_boxPlayer.x += aux1;

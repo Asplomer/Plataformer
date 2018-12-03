@@ -5,7 +5,7 @@ namespace Plataformer {
 	int screenWidth = 0;
 	int screenHeight = 0;
 	String verMajor = '0';
-	String verMinor = '8';
+	String verMinor = '9';
 	int gameState = Start;
 	float hourglass;
 	float time;
@@ -27,15 +27,13 @@ namespace Plataformer {
 		tmx::TileMap map("res/Ejemtiles.tmx");
 
 		map.ShowObjects(); // Display all the layer objects.
-		while (window->isOpen())
-		{
+		while (window->isOpen()){
 			sf::Time elapsed = clock.restart();
 			Event event;
 			time = elapsed.asSeconds();
 			UpdateManager();
 			DrawManager();
-			while (window->pollEvent(event))
-			{
+			while (window->pollEvent(event)){
 
 				if (event.type == Event::Closed)
 					window->close();
@@ -55,8 +53,7 @@ namespace Plataformer {
 		screenWidth = 800;
 		screenHeight = 400;
 		window = new RenderWindow(VideoMode(screenWidth, screenHeight), "Slimy Adventures!");
-		if (!font.loadFromFile("res/arial.ttf"))
-		{
+		if (!font.loadFromFile("res/Imagenes/arial.ttf")){
 			// error...
 		}
 

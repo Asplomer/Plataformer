@@ -1,16 +1,18 @@
 //#include <SFML\Graphics.hpp>
 //#include <STP\TMXLoader.hpp>
 //#include <iostream>
-#include "Manager.h"
 #include <ctime>
+#include "Manager.h"
+
 using namespace std;
 using namespace Plataformer;
 
-int main()
-{
+int main(){
 	srand(std::time(0));
-	
-
+	Music music;
+	if (!music.openFromFile("res/Audio/Dash Runner.wav"))
+		return -1; // error
+	music.play();
 	PlayTheGame();
 	
 	//map.GetLayer("World").visible = false; // Hide a Layer named World
