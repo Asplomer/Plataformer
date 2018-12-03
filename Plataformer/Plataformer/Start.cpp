@@ -8,7 +8,7 @@ namespace Plataformer {
 	int _stextPosX[TEXTNUMBERSTART];
 	int _stextPosY[TEXTNUMBERSTART];
 	void InitStart() {
-		_stextStr[0] = ("SlimePanic");
+		_stextStr[0] = ("Slimy adventures");
 		String aux = "Version V";
 
 		aux.insert(aux.getSize(), verMajor);
@@ -18,7 +18,7 @@ namespace Plataformer {
 		_stextStr[1] = (aux);
 		_stextStr[2] = ("Play");
 		_stextStr[3] = ("Exit");
-		_stextStr[4] = ("Credit");
+		_stextStr[4] = ("Credits");
 
 		_stextSiz[0] = 40;
 		_stextSiz[1] = 28;
@@ -43,18 +43,21 @@ namespace Plataformer {
 
 	}
 	void UpdateStart() {
-		Vector2i aux = Mouse::getPosition();
+		Vector2i aux = Mouse::getPosition(*window);
 		//el 400 tiene desde el borde derecho hacia el inicio de la pantalla, que es medio raro
+		cout << aux.x  << " de x y " << aux.y<< " de y" << endl;
+
 		if (Mouse::isButtonPressed(Mouse::Left)) {
-			if (aux.x-400 >  65 && aux.x -400 <  285 && aux.y -250>200  && aux.y-250 < 320 ) {
+			if (aux.x >  65 && aux.x  <  285 && aux.y>200  && aux.y < 230 ) {
+				
 				gameState = Play;
 				
 			}
-			if (aux.x-400 > 65 && aux.x -400 < 255 && aux.y-250 >280 && aux.y-250 < 350) {
+			if (aux.x > 65 && aux.x < 255 && aux.y >280 && aux.y < 315) {
 				gameState = End;
 			}
 			
-			if (aux.x-400 > 65 && aux.x-400 < 255 && aux.y-250 >370 && aux.y-250 < 400) {
+			if (aux.x > 65 && aux.x < 255 && aux.y >340 && aux.y < 375) {
 				gameState = Credit;
 			}
 		}

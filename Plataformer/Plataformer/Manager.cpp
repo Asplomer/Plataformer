@@ -19,6 +19,7 @@ namespace Plataformer {
 		text.setFillColor(Color::White);
 		
 		InitManager();
+		InitCredits();
 		InitStart();
 		InitGame();
 		Clock clock;
@@ -53,7 +54,7 @@ namespace Plataformer {
 	void InitManager() {
 		screenWidth = 800;
 		screenHeight = 400;
-		window = new RenderWindow(VideoMode(screenWidth, screenHeight), "Slimmy Adventures!");
+		window = new RenderWindow(VideoMode(screenWidth, screenHeight), "Slimy Adventures!");
 		if (!font.loadFromFile("res/arial.ttf"))
 		{
 			// error...
@@ -66,6 +67,7 @@ namespace Plataformer {
 		switch (gameState) {
 		case Start: {
 			UpdateStart();
+			
 		}break;
 		case Play: {
 
