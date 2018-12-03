@@ -14,7 +14,7 @@ namespace Plataformer {
 		Sprite _enemySprite;
 		BoundingBox _boxEnemy;
 	public:
-		void InitEnemy(BoundingBox playerPos);
+		void InitEnemy(BoundingBox playerPos, Vector2f size);
 		void UpdateEnemy(BoundingBox playerPos);
 		void DrawEnemy();
 		void RespawnEnemy(BoundingBox playerPos);

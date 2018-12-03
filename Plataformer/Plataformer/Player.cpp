@@ -2,13 +2,15 @@
 namespace Plataformer {
 	static Texture _playerTextures[2];
 	void Player::InitPlayer(BoundingBox box) {
-		_boxPlayer = box;
+		_boxPlayer = box;		//la posicion del jugador en la pantalla y sus dimensiones
 		
 		
-		_momentum = 0.0f;
-		_jump = true;
-		_atacking = false;
-		_atackCD = false;
+		_momentum = 0.0f;		// el momentum que se genera cuando se mueve en el aire, para calcular el salto
+		_jump = true;			// si esta saltando/ en el aire
+		_atacking = false;		// si esta atacando el jugador
+		_atackCD = false;		// si esta en cd el ataque del jugador
+		_direction = false;		//si es false, mira para la derecha
+		
 			if (!_playerTextures[0].loadFromFile("res/Slime/Slime.png"))
 			{
 				// error...
@@ -17,12 +19,17 @@ namespace Plataformer {
 			{
 				// error...
 			}
+			if (!_playerTextures[2].loadFromFile("res/Slime/Atack2.png"))
+			{
+				// error...
+			}
 			_playerSprite.setPosition(_boxPlayer.x, _boxPlayer.y);
+			//_boxAtack = BoundingBox{ (float)_boxPlayer.x, (float)_boxPlayer.y, (float)_boxPlayer.w, (float)_boxPlayer.h };
 			_atackSprite.setPosition(_boxPlayer.x + 32.0f, _boxPlayer.y + 16.0f);
 	}
 
-	void Player::UpdatePlayer(float aux1, float aux2) {
-		
+	bool Player::UpdatePlayer(float aux1, float aux2) {
+		bool ret = false;
 		_boxPlayer.x += aux1;
 		_boxPlayer.y += aux2;
 		InputPlayer();
@@ -42,32 +49,46 @@ namespace Plataformer {
 		}
 		//cout << _atackDuration << " vs " << _atackStart << " = " << _atackStart - _atackDuration <<endl;
 		if (_atacking) {
-			cout << "esta atacando: "<< _atackStart << endl;
+			ret = true;
 		}
-		else cout << "no lo esta " <<_atackStart<< endl;
+		else ret = false;
 		DrawPlayer();
+		return ret;
 	}
 	void Player::DrawPlayer() {
 		
 		_playerSprite.setPosition(Vector2f{ _boxPlayer.x, _boxPlayer.y });
-				_playerSprite.setTexture(_playerTextures[0]);
+		_playerSprite.setTexture(_playerTextures[0]);
 		
-		window->draw(_playerSprite);
+
 		if (_atacking) {
 			
+			if (!_direction) {
+				_atackSprite.setPosition(_boxPlayer.x + _boxPlayer.w/2, _boxPlayer.y);
+				_atackSprite.setTexture(_playerTextures[1]);
+			}
+			else {
+				_atackSprite.setPosition(_boxPlayer.x - _boxPlayer.w, _boxPlayer.y);
+				_atackSprite.setTexture(_playerTextures[2]);
+			}
 			
-			_atackSprite.setPosition(_boxPlayer.x + 16.0f, _boxPlayer.y);
-			_atackSprite.setTexture(_playerTextures[1]);
 			window->draw(_atackSprite);
-
+			
 
 		}
+		window->draw(_playerSprite);
 	}
 	void Player::InputPlayer() {
-		if (Keyboard::isKeyPressed(Keyboard::Right))
-			_boxPlayer.x += PLAYERSPEED * time*100;
-		if (Keyboard::isKeyPressed(Keyboard::Left))
-			_boxPlayer.x -= PLAYERSPEED * time*100;
+		if (Keyboard::isKeyPressed(Keyboard::Right)) {
+			_boxPlayer.x += PLAYERSPEED * time * 100;
+			if (!_atacking)
+			_direction = false;
+		}
+		if (Keyboard::isKeyPressed(Keyboard::Left)) {
+			_boxPlayer.x -= PLAYERSPEED * time * 100;
+			if(!_atacking)
+			_direction = true;
+		}
 		_boxPlayer.y -= _momentum /2 * time*100;
 		if (_jump == false) {
 			if (Keyboard::isKeyPressed(Keyboard::X) ) {
@@ -79,7 +100,7 @@ namespace Plataformer {
 		}
 		if (!_atacking && Keyboard::isKeyPressed(Keyboard::Z) && !_atackCD ){
 			_atacking = true;
-			cout << "ataca!" << endl;
+			//cout << "ataca!" << endl;
 			_atackStart = 10.0f;
 			_atackCD = true;
 			_atackCooldown = 40.0f;
@@ -108,6 +129,16 @@ namespace Plataformer {
 			return true;
 		}
 	}
+	BoundingBox Player::BoundingAtack() {
+		BoundingBox b = { (float)_boxPlayer.x, (float)_boxPlayer.y, (float)_boxPlayer.w, (float)_boxPlayer.h };
+		if (_direction) {
+			b.x -= _boxPlayer.w/2;
+		}
+		else {
+			b.x += _boxPlayer.w;
+		}
+		return b;
+	}
 	float Player::AngleToPlayer(BoundingBox from) {
 		double tgX = from.x - _boxPlayer.x;
 		double tgy = from.y - _boxPlayer.y;
@@ -116,4 +147,5 @@ namespace Plataformer {
 	BoundingBox Player::BoundingPlayer(){
 		return _boxPlayer;
 	}
+	
 }

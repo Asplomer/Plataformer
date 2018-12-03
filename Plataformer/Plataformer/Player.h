@@ -21,16 +21,16 @@ namespace Plataformer {
 		bool _atackCD;
 		float _atackStart;
 		Sprite _atackSprite;
-		BoundingBox _boxAtack;
+		//BoundingBox _boxAtack;
 	public:
 		void InitPlayer(BoundingBox box);
-		void UpdatePlayer(float aux1, float aux2);
+		bool UpdatePlayer(float aux1, float aux2);		//devuelve si esta atacando
 		void DrawPlayer();
 		bool OnGroundPlayer();
 		void InputPlayer();
 		void UnloadPlayer();
 		bool PlayerJump(bool colision);
-		void Atack();
+		BoundingBox BoundingAtack();
 		float AngleToPlayer(BoundingBox from);
 		BoundingBox BoundingPlayer();
 	};

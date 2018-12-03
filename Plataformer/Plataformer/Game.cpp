@@ -20,7 +20,8 @@ namespace Plataformer {
 		platformArray[1]->InitPlatform(p2, 0, 1);
 		platformArray[2]->InitPlatform(p3, 0, 2);
 		platformArray[3]->InitPlatform(p4, 1, 1);
-		eye->InitEnemy(ch);
+		Vector2f measuresEye = { 48.0f, 48.0f };
+		eye->InitEnemy(ch, measuresEye);
 	}
 
 
@@ -39,6 +40,7 @@ void MovingPlatforms() {
 void UpdateGame() {
 	float aux1 = 0.0f;
 	float aux2 = 0.0f;
+	bool aux3= false;		//si el jugador esta atacando
 	bool colides = false;
 	for (int i = 0; i < PLATFORMARRAYSIZE; i++)
 	{
@@ -51,10 +53,17 @@ void UpdateGame() {
 	}
 	
 
-	
+	aux3= player->UpdatePlayer(aux1, aux2);
 	eye->UpdateEnemy(player->BoundingPlayer());
+if (DetectCol(eye->BoundingEnemy(), player->BoundingAtack())){
 
-	player->UpdatePlayer(aux1, aux2);
+		eye->RespawnEnemy(player->BoundingPlayer());
+	}else{
+	BoundingBox bE = eye->BoundingEnemy();
+	BoundingBox bA = player->BoundingAtack();
+	cout << bE.y<<  " vs "<< bA.y  << endl;
+}
+	
 	player->PlayerJump(colides);
 	
 
