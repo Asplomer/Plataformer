@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.8] - 2018 - 12 - 3
+### Added
+- Credits
+- Start Menu
 
 ## [0.7] - 2018 - 12 - 3
 ### Fixed

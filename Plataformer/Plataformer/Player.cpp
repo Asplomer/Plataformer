@@ -1,6 +1,6 @@
 #include "Player.h"
 namespace Plataformer {
-	static Texture _playerTextures[2];
+	static Texture _playerTextures[3];
 	void Player::InitPlayer(BoundingBox box) {
 		_boxPlayer = box;		//la posicion del jugador en la pantalla y sus dimensiones
 		
@@ -142,7 +142,7 @@ namespace Plataformer {
 	float Player::AngleToPlayer(BoundingBox from) {
 		double tgX = from.x - _boxPlayer.x;
 		double tgy = from.y - _boxPlayer.y;
-		return atan2(tgX, tgy);
+		return (float)atan2(tgX, tgy);
 	}
 	BoundingBox Player::BoundingPlayer(){
 		return _boxPlayer;
