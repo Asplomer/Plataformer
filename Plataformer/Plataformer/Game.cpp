@@ -67,8 +67,13 @@ namespace Plataformer {
 
 	}
 	void DrawGame() {
+		tmx::TileMap map("res/Imagenes/Background.tmx");
+		map.ShowObjects();
+		window->draw(map);
+
 		player->DrawPlayer();
 		eye->DrawEnemy();
+
 		for (int i = 0; i < PLATFORMARRAYSIZE; i++){
 			platformArray[i]->DrawPlatform();
 		}

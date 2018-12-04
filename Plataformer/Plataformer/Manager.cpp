@@ -4,13 +4,14 @@ namespace Plataformer {
 
 	int screenWidth = 0;
 	int screenHeight = 0;
-	String verMajor = '0';
-	String verMinor = '9';
+	String verMajor = '1';
+	String verMinor = '0';
 	int gameState = Start;
 	float hourglass;
 	float time;
 	Font font;
 	Text text;
+//	tmx::TileMap map;
 //	Player* player = new Player();
 //	Platform* platform = new Platform;
 	void PlayTheGame(){
@@ -23,10 +24,10 @@ namespace Plataformer {
 		InitStart();
 		InitGame();
 		Clock clock;
-		
-		tmx::TileMap map("res/Ejemtiles.tmx");
 
-		map.ShowObjects(); // Display all the layer objects.
+
+		 // Display all the layer objects.
+		//map.GetLayer("World").visible = false;
 		while (window->isOpen()){
 			sf::Time elapsed = clock.restart();
 			Event event;
@@ -37,13 +38,13 @@ namespace Plataformer {
 
 				if (event.type == Event::Closed)
 					window->close();
+				//window->draw(map);
+
 			}
 
 			window->clear();
-
 			//window.draw(shape);
-			window->draw(map);
-
+		//	window->display();
 			//player->DrawPlayer();
 
 

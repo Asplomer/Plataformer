@@ -14,11 +14,14 @@ namespace Plataformer {
 		aux.insert(aux.getSize(), verMajor);
 		aux.insert(aux.getSize(), '.');
 		aux.insert(aux.getSize(), verMinor);
+		aux.insert(aux.getSize(), "							Controles:");
 
 		_stextStr[1] = (aux);
-		_stextStr[2] = ("Play");
-		_stextStr[3] = ("Exit");
-		_stextStr[4] = ("Credits");
+		_stextStr[2] = ("Play							- Saltar: X");
+		_stextStr[3] = ("Exit							 - Pegar: Z");
+		_stextStr[4] = ("Credits						- Salir: ESC");
+		
+
 
 		_stextSiz[0] = 40;
 		_stextSiz[1] = 28;
@@ -45,7 +48,7 @@ namespace Plataformer {
 	void UpdateStart() {
 		Vector2i aux = Mouse::getPosition(*window);
 		//el 400 tiene desde el borde derecho hacia el inicio de la pantalla, que es medio raro
-		cout << aux.x  << " de x y " << aux.y<< " de y" << endl;
+	//	cout << aux.x  << " de x y " << aux.y<< " de y" << endl;
 
 		if (Mouse::isButtonPressed(Mouse::Left)) {
 			if (aux.x >  65 && aux.x  <  285 && aux.y>200  && aux.y < 230 ) {

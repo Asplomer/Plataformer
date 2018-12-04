@@ -101,7 +101,7 @@ namespace Plataformer {
 			_atackCD = true;
 			_atackCooldown = 40.0f;
 		}
-		if (Keyboard::isKeyPressed(Keyboard::C))
+		if (Keyboard::isKeyPressed(Keyboard::Escape))
 			window->close();
 	}
 	void Player::UnloadPlayer() {

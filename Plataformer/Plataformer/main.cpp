@@ -10,6 +10,7 @@ using namespace Plataformer;
 int main(){
 	srand(std::time(0));
 	Music music;
+	
 	if (!music.openFromFile("res/Audio/Dash Runner.wav"))
 		return -1; // error
 	music.play();

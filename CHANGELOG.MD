@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0] - 2018 - 12 - 3
+### Added
+- Background
+- Instructions
+### Fixed
+- Screenshots
 
 ## [0.9] - 2018 - 12 - 3
 ### Added
